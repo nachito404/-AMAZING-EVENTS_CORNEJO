@@ -25,20 +25,6 @@ header img {
     margin-right: 20px;
 }
 
-.check1 {
-    font-size: 30px;
-    color: rgb(197, 120, 136);
-    float: right;
-    line-height: 80px;
-    margin-right: 40px;
-    cursor: pointer;
-    display: none;
-}
-
-#check {
-    display: none;
-}
-
 .header3 {
     background-color: rgb(197, 120, 136);
     height: 25vh;
@@ -207,13 +193,31 @@ footer i {
     padding: 1rem;
 }
 
-@media (max-width: 1106px) {
-    margin-right: 0px;
-    width: 5vh;
-    padding: 0.3rem;
-    
+@media (max-width:1200px) {
+    header img {
+        width: 25%;
+    }
 
-
+    .header2 {
+        width: 6vh;
+        margin-right: 10px;
+    }
 }
 
-@media(max-width: 858px) {}
+@media (max-width:767px) {
+    header img {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .header1 {
+        height: 30vh;
+        flex-wrap: wrap;
+    }
+
+    .header2 {
+        width: 4vh;
+        margin: 5px;
+        padding: 0;
+    }
+}
