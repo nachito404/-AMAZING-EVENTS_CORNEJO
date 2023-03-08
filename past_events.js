@@ -181,4 +181,4 @@ function eventos_filtrados(data) {
         }
         return past;
 }
-console.log(eventos_filtrados);
+console.log(eventos_filtrados(data));

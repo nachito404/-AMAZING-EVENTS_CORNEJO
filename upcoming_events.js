@@ -175,15 +175,16 @@ const data = {
 
 
 function eventos_filtrados(data) {
-    
-    let future=[];
-    
+
+    let future = [];
+
     for (const event of data.events) {
         if (event.date > data.currentDate) {
             future.push(event)
-        } 
+        }
     }
-    return future
+    return future;
 }
-console.log(eventos_filtrados);
-console.log (future)
+
+
+console.log(eventos_filtrados(data))
