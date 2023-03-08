@@ -57,7 +57,7 @@ header img {
     padding: 20px;
 }
 
-.tarjeta {
+#tarjeta {
     display: grid;
     gap: 1.75rem;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -72,10 +72,8 @@ header img {
     margin: 2rem;
 }
 
-.tarjeta_header {
-    flex-basis: 100%;
-    font-size: 1.5rem;
-    text-transform: uppercase;
+.tarjeta_header img{
+    width: 170px;
 }
 
 .tarjeta_body {
