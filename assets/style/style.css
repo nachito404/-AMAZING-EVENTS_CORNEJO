@@ -219,3 +219,10 @@ footer i {
         padding: 0;
     }
 }
+
+.filtro{
+    display: none;
+}
+.checkbox{
+    padding: 1rem;
+}
