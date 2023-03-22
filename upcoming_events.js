@@ -1,8 +1,26 @@
-let carta = [];
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+.then ((respuesta)=> respuesta.json())
+.then ((datos)=>{
+        let eventos = datos.events
+        let carta = eventos.filter(events => datos.currentDate < events.date)
+        tarjetas(carta)
+        pintarChecks(carta)
+        function superfiltro() {
+                let filtro = filtroTexto(carta, search.value)
+                let filtro1 = filtroCheckbox(filtro)
+                tarjetas(filtro1)
+        }
+search.addEventListener('input', superfiltro)
+checkbox.addEventListener('change', superfiltro)
+})
 
-carta = data.events.filter(events => data.currentDate < events.date)
 
-console.log(carta)
+
+const contenedor = document.querySelector(".contenedor")
+
+const checkbox = document.querySelector(".checkbox")
+
+const search = document.querySelector("#search")
 
 
 function tarjetas(carta) {
@@ -27,24 +45,11 @@ function tarjetas(carta) {
         }
         plantilla.innerHTML = cards
 }
-tarjetas(carta)
-
-const contenedor = document.querySelector(".contenedor")
-
-const checkbox = document.querySelector(".checkbox")
-
-const search = document.querySelector("#search")
-
-
-search.addEventListener('input', superfiltro)
-checkbox.addEventListener('change', superfiltro)
-
 
 function filtroTexto(array, texto) {
         let filtro = array.filter(elemento => elemento.name.toLowerCase().includes(texto.toLowerCase()))
         return filtro
 }
-
 
 function pintarChecks(array) {
         let check = ''
@@ -58,8 +63,6 @@ function pintarChecks(array) {
         })
         checkbox.innerHTML = check
 }
-pintarChecks(carta)
-
 
 function filtroCheckbox(array) {
         let checkboxes = document.querySelectorAll("input[type='checkbox']")
@@ -73,9 +76,4 @@ function filtroCheckbox(array) {
         return filtro
 }
 
-function superfiltro() {
-        let filtro = filtroTexto(carta, search.value)
-        let filtro1 = filtroCheckbox(filtro)
-        tarjetas(filtro1)
-}
 

@@ -1,10 +1,33 @@
-function tarjetas(data) {
+fetch('https://mindhub-xj03.onrender.com/api/amazing')
+.then ((respuesta)=> respuesta.json())
+.then ((datos)=>{
+        let eventos = datos.events
+        tarjetas(eventos)
+        pintarChecks(data.events)
+        function superfiltro(){
+                let filtro = filtroTexto(data.events, search.value)
+                let filtro1 = filtroCheckbox(filtro)
+                tarjetas(filtro1)
+        }
+        search.addEventListener('input',superfiltro)
+        checkbox.addEventListener('change',superfiltro)
+})
+
+
+const contenedor= document.querySelector(".contenedor")
+
+const checkbox = document.querySelector(".checkbox")
+
+const search= document.querySelector("#search")
+
+
+function tarjetas(array) {
         let cards = ``;
         let plantilla = document.getElementById("tarjeta");
-                data.forEach(i=> {
+                array.forEach(i=> {
                 cards += `
                 <div class="tarjeta1">
-                        <div class="tarjeta_header">
+                <div class="tarjeta_header">
                                 <img src="${i.image}" alt="foto">
                         </div>
                         <div class="tarjeta_body">
@@ -20,27 +43,11 @@ function tarjetas(data) {
         })
         plantilla.innerHTML = cards;
 }
-tarjetas(data.events);
-
-
-
-const contenedor= document.querySelector(".contenedor")
-
-const checkbox = document.querySelector(".checkbox")
-
-const search= document.querySelector("#search")
-
-
-search.addEventListener('input',superfiltro)
-checkbox.addEventListener('change',superfiltro)
-
-
 
 function filtroTexto (array,texto) {
         let filtro = array.filter(elemento=>elemento.name.toLowerCase().includes(texto.toLowerCase())) 
         return filtro
 }
-
 
 function pintarChecks(array){
         let check=''
@@ -54,7 +61,6 @@ function pintarChecks(array){
         })
         checkbox.innerHTML= check
 }
-pintarChecks(data.events)
 
 function filtroCheckbox(array){
         let checkboxes= document.querySelectorAll("input[type='checkbox']")
@@ -66,10 +72,4 @@ function filtroCheckbox(array){
         let values=checkeds.map(check => check.value)
         let filtro = array.filter(i => values.includes(i.category))
         return filtro
-}
-
-function superfiltro(){
-        let filtro = filtroTexto(data.events, search.value)
-        let filtro1 = filtroCheckbox(filtro)
-        tarjetas(filtro1)
 }

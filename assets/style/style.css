@@ -90,7 +90,7 @@ header img {
     padding-left: 25px;
 }
 
-.container {
+.container1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +100,7 @@ header img {
 .tarjeta_d {
     display: flex;
     margin: 1.5rem;
-    width: 42rem;
+    width: 44rem;
     height: 22rem;
     border: 4px solid #000;
 }
@@ -113,13 +113,27 @@ header img {
 
 .cuadrado_b {
     padding: 0.5rem;
+    background-color: rgb(236, 119, 181);
 }
 
+.tarjeta_body_d{
+    height: 40%;
+    padding-top: 2rem;
+}
 .tarjeta_footer_d {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    height: 50%;
+}
+
+.cuadrado_c{
+    position: relative;
+    left: 80%;
+}
+.cuadrado_c a{
+    text-decoration: none;
 }
 
 .tarjeta_footer_d p {
@@ -220,9 +234,6 @@ footer i {
     }
 }
 
-.filtro{
-    display: none;
-}
 .checkbox{
     padding: 1rem;
 }
